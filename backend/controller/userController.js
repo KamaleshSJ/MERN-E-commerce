@@ -66,11 +66,7 @@ export const requestPasswordReset = handleAsyncError(async(req,res,next)=>{
 
         // send resetToken to user's email here
 
-        res.status(200).json({
-            success: true,
-            message: "Reset token generated successfully",
-            token :resetToken
-        });
+       
         
     } catch (error) {
         console.error("Error saving reset token:", error);
