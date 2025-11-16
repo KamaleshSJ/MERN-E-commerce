@@ -50,7 +50,7 @@ export const getAllproducts =handleAsyncError( async(req,res,next)=>{
 export const getSingleproduct =handleAsyncError( async(req,res,next)=>{
      const product = await Product.findById(req.params.id)
      if(!product){
-       return  next(new HandleError('Product not found',500))
+       return  next(new HandleError('Product not found',404))
     }
     res.status(200).json({
             success:true,
@@ -81,6 +81,14 @@ export const deleteProduct = handleAsyncError( async (req,res,next)=>{
     res.status(200).json({
         success:true,
         message:'Product deleted successfully'
+    })
+})
+
+export const getAdminProducts = handleAsyncError(async (req,res,next)=>{
+    const products = await Product.find()
+    res.status(200).json({
+        success:true,
+        products
     })
 })
 
