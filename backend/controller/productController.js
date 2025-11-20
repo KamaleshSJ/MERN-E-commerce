@@ -70,7 +70,7 @@ export const updateProduct =handleAsyncError( async (req,res,next)=>{
             product
         })
 
-    })
+})
 
 export const deleteProduct = handleAsyncError( async (req,res,next)=>{
     let product = await Product.findById(req.params.id)
